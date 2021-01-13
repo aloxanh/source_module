@@ -16,8 +16,8 @@ class RolesTableSeeeder extends Seeder
 
         // Role::truncate();
         DB::table('roles')->delete();
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'user']);
-        Role::create(['name' => 'leader']);
+        Role::create(['name' => 'admin','description'=>'admin','active'=>'1']);
+        Role::create(['name' => 'user','description'=>'user','active'=>'1']);
+        Role::create(['name' => 'leader','description'=>'leader','active'=>'1']);
     }
 }
