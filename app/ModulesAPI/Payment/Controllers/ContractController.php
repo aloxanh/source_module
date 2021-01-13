@@ -21,7 +21,13 @@ class ContractController extends Controller
     // Ví dụ: http://localhost/api/v1/contract/1 (Xóa hợp đồng với id là 1)
     public function index()
     {
-        return "lay contract thanh cong"; // hàm all sẽ lấy ra tất cả hợp đồng
+        $result = array();
+        $result['data'] =  array();
+        $result['data'] = "Danh sách Hợp đồng";
+        // $result['data']['item'] = $value->items();
+
+
+        return json_encode($result, JSON_UNESCAPED_UNICODEgit); //Response($result);
     }
     public function show($id)
     {
