@@ -27,7 +27,7 @@ class ContractController extends Controller
         // $result['data']['item'] = $value->items();
 
 
-        return json_encode($result, JSON_UNESCAPED_UNICODE); //Response($result);
+        return "OK";// json_encode($result, JSON_UNESCAPED_UNICODE ); //Response($result);
     }
     public function show($id)
     {
