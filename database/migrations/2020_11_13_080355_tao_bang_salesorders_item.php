@@ -35,9 +35,9 @@ class TaoBangSalesordersItem extends Migration
      */
     public function down()
     {
-        Schema::table('tmdt_saleorders_item', function (Blueprint $table) {
-            $table->dropForeign('tmdt_saleorders_id')->references('id')->on('tmdt_saleorders')->onDelete('cascade');
-        });
+        // Schema::table('tmdt_saleorders_item', function (Blueprint $table) {
+        //     $table->dropForeign('tmdt_saleorders_id')->references('id')->on('tmdt_saleorders')->onDelete('cascade');
+        // });
         Schema::dropIfExists('tmdt_saleorders_item');
     }
 }

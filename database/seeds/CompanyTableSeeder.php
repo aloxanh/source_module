@@ -13,7 +13,7 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('companies')->delete();
+        DB::table('gbl_companies')->delete();
         Company::create(['id' => '6000', 'name' => 'TLMN', 'active' => 1]);
         Company::create(['id' => '6100', 'name' => 'TLMB', 'active' => 1]);
         Company::create(['id' => '6200', 'name' => 'TLMT', 'active' => 1]);

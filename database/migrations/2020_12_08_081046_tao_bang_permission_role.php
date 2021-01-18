@@ -20,6 +20,12 @@ class TaoBangPermissionRole extends Migration
             $table->bigInteger('permission_id')->unsigned();
             $table->timestamps();
         });
+
+        Schema::table('role_permission', function (Blueprint $table) {
+
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+        });
     }
 
     /**
@@ -29,6 +35,16 @@ class TaoBangPermissionRole extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('permission_role');
+
+        // Schema::table('role_permission', function (Blueprint $table) {
+
+        //     $table->dropForeign('role_permission_permission_id_foreign')->references('id')->on('permissions')->onDelete('cascade');
+        //     $table->dropForeign('role_permission_role_id_foreign')->references('id')->on('roles')->onDelete('cascade');
+
+        // });
+
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::dropIfExists('role_permission');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

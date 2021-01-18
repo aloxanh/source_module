@@ -13,7 +13,7 @@ class TaoBangDmCongty extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function ($table) {
+        Schema::create('gbl_companies', function ($table) {
             $table->String('id', 4)->primary();
             $table->String('name', 50);
             $table->String('active', 1);
@@ -27,6 +27,6 @@ class TaoBangDmCongty extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies'); //
+        Schema::dropIfExists('gbl_companies'); //
     }
 }

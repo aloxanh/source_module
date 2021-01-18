@@ -13,11 +13,11 @@ class TaoForeignkeyForRolePermission extends Migration
      */
     public function up()
     {
-        Schema::table('role_permission', function (Blueprint $table) {
+        // Schema::table('role_permission', function (Blueprint $table) {
 
-            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-        });
+        //     $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+        //     $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+        // });
     }
 
     /**
@@ -27,9 +27,9 @@ class TaoForeignkeyForRolePermission extends Migration
      */
     public function down()
     {
-        Schema::table('role_permission', function (Blueprint $table) {
-            $table->dropForeign('role_permission_permission_id_foreign')->references('id')->on('permissions')->onDelete('cascade');
-            $table->dropForeign('role_permission_role_id_foreign')->references('id')->on('roles')->onDelete('cascade');
-        });
+        // Schema::table('role_permission', function (Blueprint $table) {
+        //     $table->dropForeign('role_permission_permission_id_foreign')->references('id')->on('permissions')->onDelete('cascade');
+        //     $table->dropForeign('role_permission_role_id_foreign')->references('id')->on('roles')->onDelete('cascade');
+        // });
     }
 }

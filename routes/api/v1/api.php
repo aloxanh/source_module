@@ -23,6 +23,7 @@ Route::prefix('/user')->group(function () {
     Route::post('/login', 'api\v1\LoginController@login');
     Route::middleware('auth:api')->get('/all', 'api\v1\user\UserController@index');
     Route::middleware('auth:api')->post('/create', 'api\v1\user\UserController@create');
+    Route::middleware('auth:api')->post('/resetPass', 'api\v1\user\UserController@resetPass');
 });
 
 Route::prefix('tmdt')->middleware('auth:api')->group(function () {

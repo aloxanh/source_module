@@ -28,6 +28,6 @@ class TaoBangPermission extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('permissions');
+        Schema::dropIfExists('permissions');
     }
 }

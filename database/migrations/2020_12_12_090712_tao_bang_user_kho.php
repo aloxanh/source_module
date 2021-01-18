@@ -35,5 +35,8 @@ class TaoBangUserKho extends Migration
             $table->dropForeign('role_sloc_sloc_id_foreign')->references('id')->on('slocs')->onDelete('cascade');
         });
 
+
+        Schema::dropIfExists('role_sloc'); //
+
     }
 }
