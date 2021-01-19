@@ -13,10 +13,12 @@ use App\Models\shared\Department;
 use App\Models\shared\Company;
 use App\Models\shared\Comment;
 use App\Models\shared\File;
+use App\Models\shared\Team;
 
 use App\Models\service\Ticket;
 use App\Models\service\ServiceCategory;
 
+use App\User;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -63,6 +65,20 @@ class ModelTest extends TestCase
         $this->assertBelongsTo(Company::class, 'company_id','id', new Ticket , 'company');
     }
 
+    public function test_ticket_belongsTo_one_create_by()
+    {
+        $this->assertBelongsTo(User::class, 'create_by','id', new Ticket , 'createBy');
+    }
+    public function test_ticket_belongsTo_one_request_by()
+    {
+        $this->assertBelongsTo(User::class, 'request_by','id', new Ticket , 'requestBy');
+    }
+    public function test_ticket_belongsTo_one_team()
+    {
+        $this->assertBelongsTo(Team::class, 'team_id','id', new Ticket , 'team');
+    }
+
+    //Các hàm check
     protected function assertHasMany($related, $foreignKey, $model, $relationName)
     {
         $relation = $model->$relationName();

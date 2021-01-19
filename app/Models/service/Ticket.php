@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\shared\Comment;
 use App\Models\shared\Company;
 use App\Models\shared\File;
+use App\Models\shared\Team;
 use App\Models\service\ServiceCategory;
+
+use App\User;
 class Ticket extends Model
 {
     /**
@@ -24,6 +27,15 @@ class Ticket extends Model
     }
     public function company(){
         return $this->belongsTo(Company::class);
+    }
+    public function createBy(){
+        return $this->belongsTo(User::class,'create_by');
+    }
+    public function requestBy(){
+        return $this->belongsTo(User::class,'request_by');
+    }
+    public function team(){
+        return $this->belongsTo(Team::class);
     }
 
 }
