@@ -26,13 +26,13 @@ class UsersTableSeeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@admin.com',
             'username' => 'admin',
-            'companycode' => '6000',
+            'company_id' => '6000',
 
             'password' => Hash::make('123')
         ]);
         $leader = User::create([
             'name' => 'Leader User',
-            'companycode' => '6000',
+            'company_id' => '6000',
             'username' => 'leader',
             'email' => 'leader@leader.com',
             'password' => Hash::make('123')
@@ -41,7 +41,7 @@ class UsersTableSeeeder extends Seeder
             'name' => 'Generic User',
             'username' => 'user',
             'email' => 'user@user.com',
-            'companycode' => '6000',
+            'company_id' => '6000',
             'password' => Hash::make('123')
         ]);
         $admin->roles()->attach($adminRole);
