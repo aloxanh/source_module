@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'tickets' => 'App\Models\service\Ticket',
+            'ServiceCategory' => 'App\Models\service\ServiceCategory'
 
         ]);
     }

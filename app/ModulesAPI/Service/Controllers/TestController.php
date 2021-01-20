@@ -5,9 +5,13 @@ use App\Http\Controllers\Controller;
 
 use Request;
 use App\Models\service\Ticket;
+use App\Models\service\ServiceCategory;
+use App\Models\shared\Team;
 use App\Models\shared\Comment;
 use App\Models\shared\Company;
+use App\Models\shared\Teamable;
 use App\Models\shared\Department;
+
 class TestController extends Controller
 {
 
@@ -41,7 +45,25 @@ class TestController extends Controller
 
 
         $company = Company::find('6000');
-        dd($company->departments );
+
+        // $serviceCate = new  ServiceCategory();
+        // $serviceCate->name = 'Dịch vụ IT';
+        // $serviceCate->save();
+
+        $team = new Team;
+        $team->name ="IT Support";
+        $team->description ="IT Support";
+        $team->active ="1";
+        $team->level ="1";
+        $team->save();
+
+        $serviceCate = ServiceCategory::find(1);
+        $team = Team::find(2);
+        $serviceCate->teams()->save($team, ['user_id' => Auth()->user()->id]);
+        $teamable =  Teamable::find(4);
+        $teamable->delete();
+        //$serviceCate->teams($team)->detach();
+       // dd($company->departments );
         // foreach ($dataTicket->comments as $key => $value) {
         //         dd($value);
         // }
